@@ -1,0 +1,28 @@
+﻿<Window x:Class="SportShop.CatalogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportShop"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Title="Catalog" Height="450" Width="800">
+    <Grid>
+        <Grid.Resources>
+            <ImageBrush x:Key="Refresh" ImageSource="Images/refresh.png" Stretch="UniformToFill"/>
+            <ImageBrush x:Key="Gear" ImageSource="Images/gear.png" Stretch="UniformToFill"/>
+        </Grid.Resources>
+
+        <DockPanel>
+            <DataGrid x:Name="datagridCatalog" IsReadOnly="True" Height="260" VerticalAlignment="Top"/>
+        </DockPanel>
+        <Button x:Name="ButtonAdd" Content="Add" HorizontalAlignment="Left" Margin="224,352,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" Width="100"/>
+        <Button x:Name="ButtonEdit" Content="Edit" HorizontalAlignment="Left" Margin="432,352,0,0" VerticalAlignment="Top" Click="ButtonEdit_Click" Width="100"/>
+        <Button x:Name="ButtonFind" Content="Find" HorizontalAlignment="Left" Margin="570,299,0,0" VerticalAlignment="Top" Click="ButtonFind_Click" Width="80"/>
+        <Button x:Name="ButtonRefresh" BorderThickness="0" BorderBrush="White" Background="{StaticResource Refresh}" HorizontalAlignment="Left" Margin="728,263,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="ButtonRefresh_Click" />
+        <TextBox x:Name="textboxFind" HorizontalAlignment="Left" Margin="224,306,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="308"/>
+        <Button x:Name="ButtonSettings" BorderThickness="0" BorderBrush="White" Background="{StaticResource Gear}" HorizontalAlignment="Left" Margin="728,368,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="ButtonSettings_Click" />
+
+    </Grid>
+</Window>
