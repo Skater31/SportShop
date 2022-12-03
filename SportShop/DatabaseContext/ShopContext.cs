@@ -12,7 +12,7 @@ namespace SportShop.DatabaseContext
     {
         public ShopContext() : base("DefaultConnection")
         {
-
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ShopContext>());
         }
 
         public DbSet<Shop> Shops { get; set; }

@@ -21,7 +21,7 @@ namespace SportShop.Services
         {
             if (IsCorrectAuthorization(ref login, ref password))
             {
-                return _shopContext.Shops.SingleOrDefault(m => m.Login == login && m.Password == password);
+                return _shopContext.Shops.FirstOrDefault(m => m.Login == login && m.Password == password);
             }
 
             return null;

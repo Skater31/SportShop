@@ -11,32 +11,33 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using SportShop.Services;
-using SportShop.Models;
-using SportShop.DatabaseContext;
 
 namespace SportShop
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SettingsWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SettingsWindow : Window
     {
-        private readonly ShopService _shopService;
-
-        public MainWindow()
+        public SettingsWindow()
         {
-            _shopService = new ShopService();
-
             InitializeComponent();
         }
 
-        private void ButtonNext_Click(object sender, RoutedEventArgs e)
+        private void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
-            var shop = _shopService.GetShop(textboxLogin.Text, textboxPassword.Text);
+            var windows = Application.Current.Windows;
 
-            new CatalogWindow(shop).Show();
+            new MainWindow().Show();
 
+            foreach (Window window in windows)
+            {
+                window.Close();
+            }
+        }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
             Close();
         }
     }

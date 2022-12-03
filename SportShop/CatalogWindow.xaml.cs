@@ -6,13 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SportShop
 {
@@ -57,11 +50,15 @@ namespace SportShop
         private void ButtonRefresh_Click(object sender, RoutedEventArgs e)
         {
             datagridCatalog.ItemsSource = _sportItemsService.GetCatalog(_shop.Id);
+
+            new CatalogWindow(_shop).Show();
+
+            Close();
         }
 
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            new SettingsWindow().ShowDialog();
         }
     }
 }
