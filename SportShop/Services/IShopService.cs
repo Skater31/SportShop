@@ -9,6 +9,6 @@ namespace SportShop.Services
 {
     public interface IShopService
     {
-        Shop GetShop(string login, string password);
+        Task<Shop> GetShop(string authentication);
     }
 }

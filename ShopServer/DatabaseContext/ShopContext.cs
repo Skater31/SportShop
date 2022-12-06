@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SportShop.Models;
+using ShopServer.Models;
 
-namespace SportShop.DatabaseContext
+namespace ShopServer.DatabaseContext
 {
     public class ShopContext : DbContext
     {
-        public ShopContext() : base("DefaultConnection")
+        public ShopContext(DbContextOptions<ShopContext> options) : base(options)
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<ShopContext>());
+            Database.EnsureCreated();
         }
 
         public DbSet<Shop> Shops { get; set; }

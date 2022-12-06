@@ -1,21 +1,16 @@
-﻿using SportShop.DatabaseContext;
-using SportShop.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity.Migrations;
+﻿using ShopServer.Models;
+using ShopServer.DatabaseContext;
+using Microsoft.EntityFrameworkCore;
 
-namespace SportShop.Services
+namespace ShopServer.Services
 {
-    public class SportItemsService : ISportItemsService
+    public class SportItemService
     {
         private readonly ShopContext _shopContext;
 
-        public SportItemsService()
+        public SportItemService(ShopContext shopContext)
         {
-            _shopContext = new ShopContext();
+            _shopContext = shopContext;
         }
 
         public IEnumerable<SportItem> Find(string value)
@@ -69,7 +64,7 @@ namespace SportShop.Services
 
         public void Edit(SportItem sportItem)
         {
-            _shopContext.SportItems.AddOrUpdate(sportItem);
+            _shopContext.Entry(sportItem).State = EntityState.Modified;
 
             _shopContext.SaveChanges();
         }

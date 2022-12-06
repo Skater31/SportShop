@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SportShop.Services
 {
-    public interface ISportItemsService
+    public interface ISportItemService
     {
-        IEnumerable<SportItem> Find(string value);
+        Task<IEnumerable<SportItem>> Find(string value);
 
-        IEnumerable<SportItem> GetCatalog(int shopId);
+        Task<IEnumerable<SportItem>> GetCatalog(int shopId);
 
         void Add(SportItem sportItem);
 

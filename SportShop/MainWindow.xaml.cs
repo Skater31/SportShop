@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SportShop.Services;
 using SportShop.Models;
-using SportShop.DatabaseContext;
 
 namespace SportShop
 {
@@ -31,13 +30,20 @@ namespace SportShop
             InitializeComponent();
         }
 
-        private void ButtonNext_Click(object sender, RoutedEventArgs e)
+        private async void ButtonNext_Click(object sender, RoutedEventArgs e)
         {
-            var shop = _shopService.GetShop(textboxLogin.Text, textboxPassword.Text);
+            var shop = await _shopService.GetShop(textboxLogin.Text + "~" + textboxPassword.Text);
 
-            new CatalogWindow(shop).Show();
+            if (shop != null)
+            {
+                new CatalogWindow(shop).Show();
 
-            Close();
+                Close();
+            }
+            else
+            {
+                labelError.Content = "Incorrect login or password!";
+            }
         }
     }
 }

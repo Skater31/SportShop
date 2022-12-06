@@ -22,13 +22,13 @@ namespace SportShop
     /// </summary>
     public partial class AddWindow : Window
     {
-        private readonly SportItemsService _sportItemsService;
+        private readonly SportItemService _sportItemsService;
 
         private readonly int _shopId;
 
         public AddWindow(int shopId)
         {
-            _sportItemsService = new SportItemsService();
+            _sportItemsService = new SportItemService();
 
             _shopId = shopId;
 
